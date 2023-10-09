@@ -51,7 +51,7 @@ return (
             <div className="bg-light p-3 rounded shadow">
                 <h3>Sidebar Content</h3>
                 {/* Add your sidebar content here */}
-                {/* <Sidebar/> */}
+                <Sidebar/>
             </div>
         </div>
         <div className="col-md-9">
@@ -78,7 +78,7 @@ return (
             <Admin />
           ) : (
             <div className="bg-light p-3 rounded shadow">
-              <h3>You can't access this page.</h3>
+              <h3>You can't `&pos access this page.</h3>
             </div>
           )}
         </div>
