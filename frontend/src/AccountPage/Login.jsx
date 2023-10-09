@@ -9,13 +9,13 @@ const Login = () => {
     email:'',
     password:''
 })
-
+const PORT = 8000;
   const navigate = useNavigate('/')
   axios.defaults.withCredentials=true;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/login',values)
+    await axios.post(`http://localhost:${PORT}/login`,values)
     .then(res => {
         if(res.data.Status === "Success"){
             navigate('/')

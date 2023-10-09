@@ -5,8 +5,8 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser'); // Import bodyParser
 const bcrypt = require('bcrypt'); // Import bcrypt for password hashing
-const PORT = 5000;
-const myADataBase = 'mydb';
+const PORT = 8000;
+const myADataBase = 'mydb1';
 
 const app = express();
 app.use(express.json());
@@ -35,35 +35,6 @@ app.get('/adminuser', (req, res) => {
     return res.json(data);
   });
 });
-
-// // Middleware to verify user's role
-// const verifyRole = (roles) => {
-//   return (req, res, next) => {
-//       const token = req.cookies.token;
-//       if (!token) {
-//           return res.status(401).json({ message: 'Authentication failed' });
-//       }
-//       jwt.verify(token, 'our-jsonwebtoken-secret-key', (err, decoded) => {
-//           if (err) {
-//               return res.status(401).json({ message: 'Authentication failed' });
-//           }
-//           if (roles.includes(decoded.role)) {
-//               req.user = decoded;
-//               next();
-//           } else {
-//               return res.status(403).json({ message: 'Permission denied' });
-//           }
-//       });
-//   };
-// };
-
-// app.get('/adminuser', verifyRole(['Super', 'Admin']), (req, res) => {
-//   const sql = 'SELECT * FROM adminuser';
-//   db.query(sql, (err, data) => {
-//       if (err) return res.json(err);
-//       return res.json(data);
-//   });
-// });
 
 
 

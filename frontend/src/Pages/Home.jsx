@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Admin from './Admin'
+import Sidebar from '../components/Sidebar';
 
 function Home() {
     const [auth, setAuth] = useState(false);
@@ -9,9 +10,10 @@ function Home() {
     const [role, setRole] = useState('');
     const [message, setMessage] = useState('');
   axios.defaults.withCredentials = true;
+  const PORT = 8000;
 
   useEffect(() => {
-    axios.get('http://localhost:5000')
+    axios.get(`http://localhost:${PORT}`)
         .then(res => {
             console.log("Response from Server:", res.data); // Log the response from the server
             if (res.data.Status === "Success") {
@@ -30,7 +32,7 @@ function Home() {
 
 
 const handleLogout = () => {
-    axios.get('http://localhost:5000/logout')
+    axios.get(`http://localhost:${PORT}/logout`)
         .then(res => {
             if (res.data.Status === "Success") {
                 window.location.reload(true);
@@ -49,6 +51,7 @@ return (
             <div className="bg-light p-3 rounded shadow">
                 <h3>Sidebar Content</h3>
                 {/* Add your sidebar content here */}
+                {/* <Sidebar/> */}
             </div>
         </div>
         <div className="col-md-9">

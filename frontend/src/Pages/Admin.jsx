@@ -14,6 +14,7 @@ const Admin = () => {
     });
     const [error, setError] = useState(null);
     const [showEditModal, setShowEditModal] = useState(false);
+    const PORT = 8000;
 
   
     
@@ -28,7 +29,7 @@ const Admin = () => {
       setError(null);
   
       // Make a POST request to add the new user data to the database
-      fetch("http://localhost:5000/addadmin", {
+      fetch(`http://localhost:${PORT}/addadmin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +56,7 @@ const Admin = () => {
 
 
   useEffect(() => {
-    fetch('http://localhost:5000/adminuser')
+    fetch(`http://localhost:${PORT}/adminuser`)
       .then(res => res.json())
       .then(data => setData(data))
       .catch(err => console.log(err));
@@ -74,7 +75,7 @@ const Admin = () => {
   const handleDelete = (id) => {
     // Make a DELETE request to delete the user with the given ID
     console.log('Delete user with ID:', id);
-    fetch(`http://localhost:5000/adminuser/${id}`, {
+    fetch(`http://localhost:${PORT}/adminuser/${id}`, {
       method: 'DELETE',
     })
       .then((response) => {
@@ -96,7 +97,7 @@ const Admin = () => {
 
   
   const handleEdit = (id) => {
-    fetch(`http://localhost:5000/adminuser/${id}`)
+    fetch(`http://localhost:${PORT}/adminuser/${id}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -116,7 +117,7 @@ const Admin = () => {
 
   const handleSaveEdit = () => {
     console.log('Saving changes for user:', newUserData);
-    fetch(`http://localhost:5000/adminuser/${newUserData.id}`, {
+    fetch(`http://localhost:${PORT}/adminuser/${newUserData.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
