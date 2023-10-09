@@ -50,9 +50,9 @@ const hashPasswordMiddleware = (req, res, next) => {
   });
 };
 
-app.post('/addadmin', hashPasswordMiddleware, (req, res) => {
-  const { name, username, email, role } = req.body;
-  const password = req.hashedPassword;
+app.post('/addadmin', (req, res) => {
+  const { name, username, email, password, role } = req.body;
+  // const password = req.hashedPassword;
 
   const sql = 'INSERT INTO adminuser (name, username, email, password, role) VALUES (?, ?, ?, ?, ?)';
   db.query(sql, [name, username, email, password, role], (err, result) => {
