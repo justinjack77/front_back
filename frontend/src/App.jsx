@@ -5,6 +5,7 @@ import './App.css'
 import Login from './AccountPage/Login'
 import Home from './Pages/Home'
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import Register from './AccountPage/Register'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
+        <Route path='/register' element={<Register/>}></Route>
         <Route path='*'element={<div>Page Not Found</div>}></Route>
         {/* <Route path='/' element={<Home/>}></Route> */}
       </Routes>

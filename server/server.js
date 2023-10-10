@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser'); // Import bodyParser
 const bcrypt = require('bcrypt'); // Import bcrypt for password hashing
 const PORT = 8000;
-const myADataBase = 'mydb1';
+const myADataBase = 'mydb';
 
 const app = express();
 app.use(express.json());
@@ -123,7 +123,7 @@ app.get('/', verifyUser, (req, res) => {
     return res.json({ Status: "Success", name: req.name, role: req.role });
 });
 
-
+//login
 app.post('/login', (req, res) => {
     const sql = "SELECT * FROM adminuser WHERE email=? AND password=?";
     db.query(sql, [req.body.email, req.body.password], (err, data) => {
