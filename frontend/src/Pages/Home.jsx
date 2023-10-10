@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Admin from './Admin';
+import AdminView from './AdminView';
 import Sidebar from '../components/Sidebar';
 import Login from '../AccountPage/Login';
 
@@ -80,8 +81,10 @@ function Home() {
                         {role === 'Super' || role === 'Admin' ? (
                             <Admin />
                         ) : (
+                          // <AdminView/>
                             <div className="bg-light p-3 rounded shadow">
-                                <h3>You can't `&pos access this page.</h3>
+                                {/* <h3>You can't `&pos access this page.</h3> */}
+                                <AdminView />
                             </div>
                         )}
                     </div>
