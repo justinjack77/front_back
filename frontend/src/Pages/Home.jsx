@@ -53,7 +53,7 @@ function Home() {
                     <div className="bg-light p-3 rounded shadow">
                         <h3>Sidebar Content</h3>
                         {/* Add your sidebar content here */}
-                        <Sidebar />
+                        {/* <Sidebar /> */}
                     </div>
                 </div>
                 <div className="col-md-7">
