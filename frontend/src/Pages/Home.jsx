@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Admin from './Admin';
 import AdminView from './AdminView';
-import Sidebar from '../components/Sidebar';
+// import Sidebar from '../components/Sidebar';
 import Login from '../AccountPage/Login';
 import VerUser from '../AccountPage/VerUser';
 

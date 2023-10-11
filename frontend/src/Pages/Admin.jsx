@@ -148,7 +148,7 @@ const Admin = () => {
   return (
     <div className="container mt-5">
       <div>
-        <h1>User Page</h1>
+        <h1>Admin User Page</h1>
         <button className="btn btn-primary mb-3" onClick={() => setShowModal(true)}>
           Add New User
         </button>

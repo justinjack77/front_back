@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Admin from '../Pages/Admin';
 import AdminView from '../Pages/AdminView';
-import Sidebar from '../components/Sidebar';
+// import Sidebar from '../components/Sidebar';
 import Login from './Login';
 
 function VerUser() {
@@ -45,6 +45,7 @@ function VerUser() {
             })
             .catch(err => console.log(err));
     };
+    
     const userRolPage = () => {
         // const isLoggedIn = props.isLoggedIn;
         if (auth) {
