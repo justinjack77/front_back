@@ -45,7 +45,7 @@ function VerUser() {
             })
             .catch(err => console.log(err));
     };
-    const Greeting = () => {
+    const userRolPage = () => {
         // const isLoggedIn = props.isLoggedIn;
         if (auth) {
             if (role === "Admin" || role === "Super") {
@@ -71,12 +71,12 @@ function VerUser() {
                         </div>
                     </div>
                     <div className="col-md-7">
-                        <div className="bg-light p-3 rounded shadow text-dark">
-                            <span className="mr-3">Logged in as {name} (Role: {role})</span>
+                        <div className="bg-light p-3 rounded shadow text-dark d-flex justify-content-between align-items-center">
+                            <span>Logged in as {name} (Role: {role})</span>
                             <button onClick={handleLogout} className="btn btn-danger">Logout</button>
                         </div>
                         <div>
-                            {Greeting()}
+                            {userRolPage()}
                         </div>
                     </div>
 
