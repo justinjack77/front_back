@@ -45,6 +45,18 @@ function Home() {
             })
             .catch(err => console.log(err));
     };
+    const Greeting = () => {
+        // const isLoggedIn = props.isLoggedIn;
+        if (auth) {
+            if(role==="Admin"||role==="Super"){
+                return <Admin/>
+            }else if(role==="Normal"){
+                return <AdminView/>
+            }
+        }else{
+            return <h1>You need to login first</h1>;
+        }
+      }
 
     return (
         <div className="container-fluid" >
@@ -76,17 +88,19 @@ function Home() {
                             )}
                         </div>
                     </div>
-                    <div>
-                        {/* Conditional rendering based on user's role */}
+                    {/* Conditional rendering based on user's role */}
+                    {/* <div>
                         {role === 'Super' || role === 'Admin' ? (
                             <Admin />
                         ) : (
                           // <AdminView/>
                             <div className="bg-light p-3 rounded shadow">
-                                {/* <h3>You can't `&pos access this page.</h3> */}
                                 <AdminView />
                             </div>
                         )}
+                    </div> */}
+                    <div>
+                        {Greeting()}
                     </div>
                 </div>
 
