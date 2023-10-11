@@ -63,7 +63,7 @@ function VerUser() {
         <div className="container-fluid" >
             {auth ? (
                 <div className="row">
-                    <div className="col-md-5">
+                    <div className="col-md-3">
                         {/* Sidebar content */}
                         <div className="bg-light p-3 rounded shadow">
                             <h3>Sidebar Content</h3>
@@ -71,7 +71,7 @@ function VerUser() {
                             {/* <Sidebar /> */}
                         </div>
                     </div>
-                    <div className="col-md-7">
+                    <div className="col-md-9">
                         <div className="bg-light p-3 rounded shadow text-dark d-flex justify-content-between align-items-center">
                             <span>Logged in as {name} (Role: {role})</span>
                             <button onClick={handleLogout} className="btn btn-danger">Logout</button>
