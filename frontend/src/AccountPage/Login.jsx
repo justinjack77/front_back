@@ -18,8 +18,9 @@ const PORT = 8000;
     await axios.post(`http://localhost:${PORT}/login`,values)
     .then(res => {
         if(res.data.Status === "Success"){
-            navigate('/')
-            window.location.reload();
+          window.location.reload();
+          navigate('/')
+            
         }else{
             alert(res.data.Message)
         }
