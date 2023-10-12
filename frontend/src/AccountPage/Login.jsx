@@ -1,32 +1,28 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import axios from "axios";
+import api from '../api/axios'; // Import the axios instance
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  
-  const [values,setValues] = useState({
-    email:'',
-    password:''
-})
-const PORT = 8000;
-  const navigate = useNavigate('/')
-  axios.defaults.withCredentials=true;
+  const [values, setValues] = useState({
+    email: '',
+    password: ''
+  });
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post(`http://localhost:${PORT}/login`,values)
-    .then(res => {
-        if(res.data.Status === "Success"){
-          window.location.reload();
-          navigate('/')
-            
-        }else{
-            alert(res.data.Message)
-        }
-    })
-    .catch(err=>console.log(err));
-   
+    try {
+      const response = await api.post('/login', values);
+      if (response.data.Status === 'Success') {
+        window.location.reload();
+        navigate('/');
+      } else {
+        alert(response.data.Message);
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   };
 
   return (
